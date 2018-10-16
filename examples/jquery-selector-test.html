@@ -1,0 +1,66 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+  <div>
+    <pre>
+      JQuery Selector Example, this should demonstrate the purpose of why the structure of HTML matters when using jQuery.
+      Below are a list of "items" that you should try "select" using jquery.
+
+      Try to write a selector to get:
+      - A, B, C, D, E, F, G --> "d" 
+      - A                   --> "p:first"
+      - B, E                --> "section.someClass > p"
+      - B, C, D             --> "#section1 p"
+      - E, F, G             --> "#section2 p"
+      - D, F, G             --> "div > p"
+      - C, D, F, G          --> "div p"
+    </pre>
+    <input id="selector-input" placeholder="Enter jQuery Selector" type="text" />
+    <button id="submit">Run</button>
+  </div>
+  <p>A</p>
+  <section id="section1" class="someClass">
+    <p>B</p>
+    <div>
+      <article>
+        <p>C</p>
+      </article>
+    </div>
+    <div>
+      <p>D</p>
+    </div>
+  </section>
+  <section id="section2" class="someClass">
+    <p>E</p>
+    <div>
+      <p>F</p>
+    </div>
+    <div>
+      <p>G</p>
+    </div>
+  </section>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script>
+    const input = $('#selector-input');
+    const submitButton = $('#submit');
+    submitButton.click(function (e) {
+      e.preventDefault();
+      const selector = input.val();
+      if (selector) {
+        const results = $(selector);
+        const data = [];
+        results.each(function (index, item) {
+          data.push(item.textContent);
+        });
+        alert(data.join(', '));
+      }
+    })
+  </script>
+</body>
+
+</html>

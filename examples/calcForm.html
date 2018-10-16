@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="theme.css" />
+
+</head>
+
+<body>
+    <div id="container">
+        <div class="section">
+            <h1 style="color:blue" title="I'm a header, yo">Calulations</h1>
+            <div>
+                <input placeholder="A" type="text" id="aValue" value="20" />
+            </div>
+            <div>
+                <input placeholder="B" type="text" id="bValue" value="30" />
+            </div>
+            <div>
+                <input placeholder="C" type="text" id="cValue" value="50" />
+            </div>
+            <div>
+                <input placeholder="Total" type="text" id="sum" />
+            </div>
+            <button id="submit">Calculate</button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        var TdesUI = $;
+    </script>
+    <script type="text/javascript" src="../dist/convergence.js"></script>
+    <script type="text/javascript"></script>
+    <script>
+        const submitButton = $('#submit');
+
+        submitButton.click(function () {
+            //clear field before calculating
+            $('#sum').val('');
+            const parent = $(this).closest('div').parent().closest('div');
+            // get all of the inputs for the section
+            const inputs = parent.find('input[type="text"]');
+
+            const data = [];
+
+            //iterate through the inputs for a section, getting the values
+            const value = inputs.each(function (idx, elem) {
+                const input = $(this);
+                const value = input.val();
+                if (value) {
+                    data.push(parseInt(value));
+                }
+            });
+            const sum = CMath.sum(data);
+            $('#sum').val(sum);
+            alert(sum);
+        });
+    </script>
+</body>
