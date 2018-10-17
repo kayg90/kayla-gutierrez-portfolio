@@ -400,6 +400,62 @@ spaceship.color = 'glorious gold';
 //deleting an existing value
 delete spaceship['Fuel Type'];
 
+//including methods within our objects
+let retreatMessage = 'We no longer wish to conquer your planet. It is full of dogs, which we do not care for.';
+// adding 2 methods (retreat & takeOff) within an object (alienShip)
+let alienShip = {
+  retreat() {
+    console.log(retreatMessage);
+  },
+  takeOff() {
+    console.log('Spim... Borp... Glix... Blastoff!');
+  }
+};
+//invoke both methods
+alienShip.retreat();
+alienShip.takeOff();
+
+
+//cont example
+let spaceship = {
+  passengers: null,
+  telescope: {
+    yearBuilt: 2018,
+    model: "91031-XLT",
+    focalLength: 2032 
+  },
+  crew: {
+    captain: { 
+      name: 'Sandra', 
+      degree: 'Computer Engineering', 
+      encourageTeam() { console.log('We got this!') },
+     'favorite foods': ['cookies', 'cakes', 'candy', 'spinach'] }
+  },
+  engine: {
+    model: "Nimbus2000"
+  },
+  nanoelectronics: {
+    computer: {
+      terabytes: 100,
+      monitors: "HD"
+    },
+    backup: {
+      battery: "Lithium",
+      terabytes: 50
+    }
+  }
+}; 
+//get captains first favorite food
+spaceship.crew.captain['favorite foods'][0];
+//add values to passenger
+spaceship.passengers = [{
+  dog: 'space dog'
+}]
+//add firstPassenger to spaceship from passengers 1
+spaceship.firstPassenger = spaceship.passengers[0]; //output would be {dog: 'space dog'}
+
+
+
 
 
 
