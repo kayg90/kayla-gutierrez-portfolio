@@ -193,6 +193,7 @@ groceries.forEach(function(groceryItem) {
 
 
 // arrow syntax ----------------------------------------------------------------------
+//returns undefined
 groceries.forEach(groceryItem => console.log(groceryItem));
 //Iterate over fruits
 fruits.forEach(fruit => console.log('I want to eat a ' + fruit));
@@ -318,4 +319,64 @@ const smallerNums = nums.map(num => num - 5);
 
 // Choose a method that will return a boolean value
 nums.some(num => num < 0);
+
+
+//program example ------------------------------------------------------------------------------------------------------------------------------
+
+let story = 'Last weekend, I took literally the most beautiful bike ride of my life. The route is called "The 9w to Nyack" and it actually stretches all thwa y from Riverside Park in Manhattan to south Nyack, New Jersey';
+let overusedWords = ['really', 'very', 'basically'];
+let unnecessaryWords = ['extremely', 'literally', 'actually'];
+
+// split the string above into an array
+let storyWords = words.split(' ');
+
+//find the length of the array
+console.log(storyWords.length);
+
+//remove all unnecessaryWords and push to a new array
+let betterWords = storyWords.filter(function(word) {
+  return !unnecessaryWords.includes(word);
+});
+console.log(betterWords);
+
+//Count how many overusedWords have been used
+let extremelyCount = 0;
+let literallyCount = 0;
+let actuallyCount = 0;
+
+for (word of storyWords) {
+  if (word === 'extremely'){
+    extremelyCount +=1;
+  }
+  else if (word === 'literally'){
+    literallyCount +=1;
+  }
+  else if (word === 'actually'){
+    actuallyCount +=1;
+  }
+}
+console.log("Extreme words used: " + extremelyCount);
+console.log("Literally words used: " + literallyCount);
+console.log("Actually words used: " + actuallyCount);
+
+//count how many sentences are in the paragraph
+let sentencesCount = 0;
+
+for (word of storyWords){
+  if (word[word.length -1] === '.' || word[word.length-1] === '!'){
+    sentencesCount += 1;
+  }
+}
+console.log('Sentences count is:' + sentencesCount);
+
+
+//log everything we've found
+console.log('Word count: ', storyWords.length);
+console.log('Sentences count is: ', sentencesCount);
+console.log("Extreme words used: ", extremelyCount);
+console.log("Literally words used: ", literallyCount);
+console.log("Actually words used: ", actuallyCount);
+
+//log the better words array to the console as a string
+console.log(betterWords.join(' '))
 
