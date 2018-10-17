@@ -416,7 +416,7 @@ alienShip.retreat();
 alienShip.takeOff();
 
 
-//cont example
+//cont example ---------------------------------------------------------------------------------------------------------------------------------
 let spaceship = {
   passengers: null,
   telescope: {
@@ -455,7 +455,52 @@ spaceship.passengers = [{
 spaceship.firstPassenger = spaceship.passengers[0]; //output would be {dog: 'space dog'}
 
 
+//cont object Pass by Reference ------------------------------------------------------------------------------------------------------------------------
+let spaceship = {
+  'Fuel Type' : 'Turbo Fuel',
+  homeplanter: 'Earth'
+};
+// write function greenEnergy that has an object5 as a parameter and sets that object's 'Fuel Type' property to 'avocado oil'
+let greenEnergy = obj => {
+  obj['Fuel Type'] = 'avocado oil'
+};
+//create function with new object as a paramerter and set object 'disabled' property to true
+let remotelyDisable = obj => {
+  obj.disabled = true;
+};
+//call the two fuctions above, then console.log the spaceship object to confirm changes
+greenEnergy(spaceship);
+remotelyDisable(spaceship);
+console.log(spaceship);
 
 
-
+// Looping through Objects -------------------------------------------------------------------------------------------------------------------------------
+//Example of for...in loops
+let spaceship = {
+  crew: {
+  captain: { 
+      name: 'Lily', 
+      degree: 'Computer Engineering', 
+      cheerTeam() { console.log('You got this!') } 
+      },
+  'chief officer': { 
+      name: 'Dan', 
+      degree: 'Aerospace Engineering', 
+      agree() { console.log('I agree, captain!') } 
+      },
+  medic: { 
+      name: 'Clementine', 
+      degree: 'Physics', 
+      announce() { console.log(`Jets on!`) } },
+  translator: {
+      name: 'Shauna', 
+      degree: 'Conservation Science', 
+      powerFuel() { console.log('The tank is full!') } 
+      }
+  }
+}; 
+//list of crew roles and names in the following format: chief officer: Dan
+for (let crewMember in spaceship.crew){
+  console.log(`${crewMember}: ${spaceship.crew[crewMember].name}`);
+}; //output captain: Lily --- chief Officer: Dan --- medic: Clementine --- translator: Shauna
 
