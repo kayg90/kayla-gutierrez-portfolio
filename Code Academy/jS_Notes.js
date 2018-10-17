@@ -232,6 +232,7 @@ const shortWords = words.filter(word => word.length < 6);
 
 
 //.findIndex() Method - finding location of an element in an array ----------------------------------------------------------------------
+//.findIndex() returns the index of the first element of an array which satisfies a condition in the callback function. It returns -1 if none of the elements in the array satisfies the condition.
 const jumbledNums = [123, 25, 78, 5, 9];
 const lessThanTen = jumbled.findIndex(num => {
   return num < 10;
@@ -284,22 +285,37 @@ console.log(words.some(word => {
   return word.length < 6;
 }));
 
-
-const words = ['unique', 'uncanny', 'pique', 'oxymoron', 'guise'];
-
-// Something is missing in the method call below
-
-console.log(words.some(word => {
-  return word.length < 6;
-}));
-
-// Use filter to create a new array
-const interestingWords = words.filter((word) => {return word.length > 5});
+// Use filter to create a new array of words greater than 5 in length - t/f
+const interestingWords = words.filter((word) => {return word.length > 5}); //output true
+//does every word have a more than 5 characters t/f
+console.log(interestingWords.every((word) => {return word.length > 5})); //output true
 
 
-// Make sure to uncomment the code below and fix the incorrect code before running it
+//continued examples ----------------------------------------------------------------------------------------------------
+const cities = ['Orlando', 'Dubai', 'Edinburgh', 'Chennai', 'Accra', 'Denver', 'Eskisehir', 'Medellin', 'Yokohama'];
 
-console.log(interestingWords.every((word) => {return word.length > 5}));
+const nums = [1, 50, 75, 200, 350, 525, 1000];
 
+//  Choose a method that will return undefined
+//.forEach() is used to execute the same code on every element in an array but does not change the array and returns undefined.
+cities.forEach(city => console.log('Have you visited ' + city + '?'));
 
+// Choose a method that will return a new array
+//.filter() checks every element in an array to see if it meets certain criteria and returns a new array with the elements that return truthy for the criteria.
+const longCities = cities.filter(city => city.length > 7);
+
+// Choose a method that will return a single value
+//.reduce() iterates through an array and takes the values of the elements and returns a single value.
+const word = cities.reduce((acc, currVal) => {
+  return acc + currVal[0]
+}, "C");
+
+console.log(word)
+
+// Choose a method that will return a new array
+//.map() executes the same code on every element in an array and returns a new array with the updated elements.
+const smallerNums = nums.map(num => num - 5);
+
+// Choose a method that will return a boolean value
+nums.some(num => num < 0);
 
