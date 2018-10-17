@@ -380,3 +380,26 @@ console.log("Actually words used: ", actuallyCount);
 //log the better words array to the console as a string
 console.log(betterWords.join(' '))
 
+
+
+//Objects ------------------------------------------------------------------------------------------------------------------
+// An object literal with two key-value pairs
+let spaceship = {
+  'Fuel Type': 'diesel',
+  color: 'silver'
+};
+//dot notation
+spaceship.color //returns silver
+//bracket notation - must use bracket notation when accessing keys that have numbers, spaces, or special characters in them
+spaceship['Fuel Type'] //returns diesel
+//can change values of keys
+//NOT LIKE THIS
+let spaceship = {color: 'silver'} //error
+//instead
+spaceship.color = 'glorious gold';
+//deleting an existing value
+delete spaceship['Fuel Type'];
+
+
+
+
